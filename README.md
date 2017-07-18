@@ -6,3 +6,8 @@ First hw. Is about to complete exercises from 1 to 6.
 
 ### A2.py
 Seccond assignment. Exercises 7,8
+
+### A3.py
+Exercises 9, 10, 11, 12 and 13
+
+
