@@ -11,3 +11,5 @@ Seccond assignment. Exercises 7,8
 Exercises 9, 10, 11, 12 and 13
 
 
+### A4.py
+Exercises 14, 15, 16 and 17
