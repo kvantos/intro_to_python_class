@@ -36,14 +36,25 @@ def is_cross(x1, y1, x2, y2, r1, r2):
 
     cat_a = abs(x1 - x2)
     cat_b = abs(y1 - y2)
-    # hypo is distance between circle centers
-    hypo = math.sqrt(cat_a**2 + cat_b**2)
-    circle_distance = hypo - r1 - r2
+    # hypo is distance between centers of circles
+    circle_center_dist = math.sqrt(cat_a**2 + cat_b**2)
+    circle_dist = circle_center_dist - r1 - r2
 
-    if circle_distance <= 0:
-        return True
+    if r1 > r2:
+        radius_big = r1
+        radius_smoll = r2
     else:
+        radius_big = r2
+        radius_smoll = r1
+
+    if circle_dist > 0:
         return False
+    
+    elif circle_center_dist + radius_smoll < radius_big:
+        return False
+    
+    else:
+        return True
     
 # 16. Два поезда движутся на скорости V1 и V2 навстречу друг другу.
 # Между ними 10 км. пути. Через 4 км пути первый поезд может
@@ -58,7 +69,6 @@ def is_collade(v1, v2):
 
     Output:
         True if trains collade under defined circumstates, False if not
-
     """
 
     t1 = 4/v1
