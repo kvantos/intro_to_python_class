@@ -40,13 +40,9 @@ def is_cross(x1, y1, x2, y2, r1, r2):
     circle_center_dist = math.sqrt(cat_a**2 + cat_b**2)
     circle_dist = circle_center_dist - r1 - r2
 
-    if r1 > r2:
-        radius_big = r1
-        radius_smoll = r2
-    else:
-        radius_big = r2
-        radius_smoll = r1
-
+    radius_big = max(r1, r2)
+    radius_smoll = min(r1, r2)
+    
     if circle_dist > 0:
         return False
     
