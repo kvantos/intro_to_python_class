@@ -40,24 +40,24 @@ def utf_jungle(sym1, sym2):
 # среди 100 случайно сгенерированных чисел.
 
 
-def average():
+def average(count=100):
     """
     Input:
 
-    nothing, this module generate everything it needs by itself
+    count: count of numbers to be used in calculation of average.
 
     Output:
 
-    average in 100 random int() numbers
+    average in random int() numbers
     """
 
     sum = 0
 
-    for i in range(100):
-        random_number = random.randint(0, 100)
+    for i in range(count):
+        random_number = random.randint(0, count)
         sum += random_number
 
-    return sum/100
+    return sum/count
 
 # Написать функцию для поиска разницы сумм всех четных
 # и всех нечетных чисел списка. Т.е. от суммы четныx
