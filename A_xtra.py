@@ -39,8 +39,8 @@ def parse_html(input_string, tag_name):
     for i in range(len(input_string)):
         ss = input_string.find("<")
         if input_string[ss + 1] == tag_name and input_string[ss + 2] == ">" :
-        # we found opening tag
-        input_string
+        	# we found opening tag
+        	input_string
 
     return None
         
@@ -88,12 +88,12 @@ def daylight_saving(m, wd, d):
 
     if m == 3:
         if wd == 7:
-            if 31 <= d < 24:
+            if 31 >= d > 24:
                 return 1
 
     elif m == 10:
         if wd == 7:
-            if 31 <= d < 24:
+            if 31 >= d > 24:
                 return -1
 
     else:
