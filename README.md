@@ -19,3 +19,6 @@ Exercises 14, 15, 16 and 17
 ### A5.py
 Exercises 18, 19 and 20
 
+### A6.py
+Exercises 21, 22, 23 and 24
+
