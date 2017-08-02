@@ -22,3 +22,6 @@ Exercises 18, 19 and 20
 ### A6.py
 Exercises 21, 22, 23 and 24
 
+### A7.py
+Exercises [25:31]
+
