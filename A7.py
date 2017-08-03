@@ -120,6 +120,28 @@ print("-------------------------------------------------------------")
 even_print()
 print("")
 
+def even_print2():
+    """
+    Input:
+    Nothing, it have everything it needs
+    
+    Output:
+    Two lists: first one with only odd numbers, second one
+    same as first but randomized.
+    """
+
+    cool_list = list(range(1, 100, 2))
+    rnd_list = cool_list.copy()
+    random.shuffle(rnd_list)
+    print(cool_list)
+    print(rnd_list)
+
+
+print("task 27, second method, generate two lists, straitforward one and randomized")
+print("-------------------------------------------------------------")
+even_print2()
+print("")
+
 # 28. Создайте 2 списка из 5 случайных целых чисел из отрезка [0;5] каждый,
 # выведите списки на экран в двух отдельных строках. Посчитайте среднее
 # арифметическое элементов каждого списка и сообщите, для какого из списков
