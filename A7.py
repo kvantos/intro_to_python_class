@@ -203,22 +203,17 @@ def count_numbers(n=11):
     Generate list of random digits and calculate max appearence of any.
     """
 
-    numbers = []
-    n_counts = []
-    
-    for i in range(n):
-        numbers.append(random.randint(-1, 1))
-        
-    x = [list(set(numbers)), n_counts]
-    for i in x[0]:
-        n_counts.append(numbers.count(i))
+    number_list = [random.randint(-1, 1) for i in range(n)]
+    digits = list(set(number_list))
+    number_counts = [number_list.count(i) for i in digits]
+    data_store = [digits, number_counts]
 
-    print(numbers)
+    print(number_list)
 
-    if len(set(x[1])) == len(x[0]):
-        max_count = max(x[1])
-        pos_of_max = x[1].index(max_count)
-        max_digit = x[0][pos_of_max]
+    if len(set(data_store[1])) == len(data_store[0]):
+        max_count = max(data_store[1])
+        pos_of_max = data_store[1].index(max_count)
+        max_digit = data_store[0][pos_of_max]
         print("%i appeared %i times" % (max_digit, max_count))
 
 
