@@ -246,7 +246,7 @@ def encript_string():
     """
 
     dictionary = string.ascii_lowercase + string.digits
-    # dictionary = 'а,б,в,г,д,о,1,2,3,4,5,6,-,0'.split(",")
+#    dictionary = 'а,б,в,г,д,о,1,2,3,4,5,6,-,0'.split(",")
     dict_len = len(dictionary)
 
     print("Hello there, please input string which you want to encript.")
@@ -254,10 +254,7 @@ def encript_string():
 
     encoded_string = []
     for ch in raw_string:
-        ind = dictionary.index(ch) + 5
-        if (ind + 1) > dict_len:
-            ind = ind - dict_len
-            
+        ind = (dictionary.index(ch) + 5) % dict_len
         encoded_string.append(dictionary[ind])
         
     print("".join(encoded_string))
