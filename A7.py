@@ -120,6 +120,7 @@ print("-------------------------------------------------------------")
 even_print()
 print("")
 
+
 def even_print2():
     """
     Input:
@@ -137,8 +138,8 @@ def even_print2():
     print(rnd_list)
 
 
-print("task 27, second method, generate two lists, straitforward one and randomized")
-print("-------------------------------------------------------------")
+print("task 27, second solution")
+print("------------------------")
 even_print2()
 print("")
 
