@@ -284,18 +284,22 @@ def pw_gen(pwd_len=8):
     Output: random password.
     """
 
-    dictionary = list(string.ascii_lowercase + string.ascii_uppercase + string.digits + "_")
-    random.shuffle(dictionary)
-    dict_len = len(dictionary)
+    dict_al = list(string.ascii_lowercase + "_")
+    dict_au = list(string.ascii_uppercase + "_")
+    dict_d = [str(random.randrange(10)) for d in range(53)]
 
-    strong_pwd = []
-    for i in range(pwd_len):
-        rnd_index = random.randrange(dict_len)
-        strong_pwd.append(dictionary[rnd_index])
+    [random.shuffle(dict) for dict in [dict_al, dict_au]]
 
+    strong_list = []
+    for section in zip(dict_al, dict_au, dict_d):
+        strong_list.extend(section)
+
+    strong_pwd = strong_list[:pwd_len]
+    random.shuffle(strong_pwd)
+    
     return "".join(strong_pwd)
 
-    
+
 print("task 31, generate random password")
 print("---------------------------------")
 print(pw_gen())
