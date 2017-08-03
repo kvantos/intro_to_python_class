@@ -286,7 +286,7 @@ def pw_gen(pwd_len=8):
 
     dict_al = list(string.ascii_lowercase + "_")
     dict_au = list(string.ascii_uppercase + "_")
-    dict_d = [str(random.randrange(10)) for d in range(53)]
+    dict_d = [str(random.randrange(10)) for d in range(len(dict_al))]
 
     [random.shuffle(dict) for dict in [dict_al, dict_au]]
 
