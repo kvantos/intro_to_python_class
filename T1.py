@@ -270,3 +270,22 @@ def solution12():
     При этом среди 15 примеров не должно быть повторяющихся
     (примеры 2*3 и 3*2 и им подобные пары считать повторяющимися)
     """
+
+    multy_table = {}
+    for i in range(2, 10):
+        for j in range(2, 10):
+            example = ("%i*%i" % (i, j))
+            example_key = i*j
+            multy_table[example_key] = example
+
+    example_list = list(multy_table.values())
+    teachers_help = set()
+
+    while len(teachers_help) < 15:
+        rnd_index = rndrange(len(example_list))
+        teachers_help.add(example_list[rnd_index])
+
+    print(teachers_help)
+
+
+print_result(solution12)
