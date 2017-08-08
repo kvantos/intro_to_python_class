@@ -25,3 +25,9 @@ Exercises 21, 22, 23 and 24
 ### A7.py
 Exercises [25:31]
 
+### A8.py
+Exercise 31: Phonebook
+
+### T1.py
+Task 1
+
