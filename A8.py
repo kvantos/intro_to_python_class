@@ -140,7 +140,6 @@ def find_by_email():
 
 
 def update_phone():
-    global phone_book
     name = input("    Enter person name: ")
     phone = input("    Enter phone number: ")
 
