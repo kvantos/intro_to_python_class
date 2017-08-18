@@ -28,6 +28,9 @@ Exercises [25:31]
 ### A8.py
 Exercise 32: Phonebook
 
+### A9.py
+Exercise 33: Class Stats
+
 ### T1.py
 Task 1
 
