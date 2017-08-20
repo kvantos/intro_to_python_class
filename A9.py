@@ -92,10 +92,10 @@ def get_hw_results():
 
     if response.status_code == 200:
         json_object = response.json()
+        result = {k['id']: k['task_completion'] for k in json_object}
+        
     else:
         log_error(response.content)
-
-    result = {k['id']: k['task_completion'] for k in json_object}
         
     return result
 
@@ -107,10 +107,10 @@ def get_test1_results():
 
     if response.status_code == 200:
         json_object = response.json()
+        result = {k['id']: k['task_completion'] for k in json_object}
+        
     else:
         log_error(response.content)
-
-    result = {k['id']: k['task_completion'] for k in json_object}
         
     return result
 
@@ -278,8 +278,8 @@ def print_students_info(sort_by_key="fullname"):
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
     # demo()
-    print("hello, Im Main")
-    # update_students_results()
+    # print("hello, Im Main")
+    update_students_results()
     print_students_info()
-
+    reset()
 
