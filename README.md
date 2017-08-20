@@ -31,6 +31,9 @@ Exercise 32: Phonebook
 ### A9.py
 Exercise 33: Class Stats
 
+### A10.py
+Exercises 34, 35 and 36
+
 ### T1.py
 Task 1
 
