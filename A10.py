@@ -13,22 +13,30 @@ class Godzilla:
     выводить надпись, что Годзила наелся и больше не
     может поедать людей.
     """
+    MAX_STOMACH_FILL = 90
     
     def __init__(self):
         self.stomach_volume = 0
 
     def eat(self, human_person):
 
-        if human_person > 90:
+        if human_person > Godzilla.MAX_STOMACH_FILL:
             print("Hey, its too much even for me!")
             print("Averege human person should be around 20")
-        else:
-            self.stomach_volume += human_person
-        
-        if self.stomach_volume >= 90:
+            
+        elif self.stomach_volume >= Godzilla.MAX_STOMACH_FILL:
             print("I'm full and can not eat more.")
         
+        elif self.stomach_volume + human_person <= Godzilla.MAX_STOMACH_FILL:
+            print("Delicious, thanks!")
+            self.stomach_volume += human_person
 
+        else:
+            print("human person with volume of %i is too much" % human_person)
+            print("Cant eat such a big human. However, I still able to absorb")
+            print("human with volume around %i" % (Godzilla.MAX_STOMACH_FILL - self.stomach_volume))
+        
+        
 class Circle:
     """
     35. Создать два класса: Окружность и Точка. Создать
@@ -42,10 +50,9 @@ class Circle:
         self.r = r
 
     def check_dot(dot):
-        
+        pass
 
 class TheDot:
-
     def __init__(self, x, y):
         self.x = x
         self.y = y
