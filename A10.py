@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import math
+
 
 class Godzilla:
     """
@@ -52,8 +54,15 @@ class Circle:
         self.y = y
         self.r = r
 
-    def check_dot(dot):
-        pass
+    def check_dot(self, dot):
+        cat_a = abs(dot.x - self.x)
+        cat_b = abs(dot.y - self.y)
+        # distance between circle center and dot
+        distance = math.sqrt(cat_a**2 + cat_b**2)
+        if distance - self.r <= 0:
+            return True
+        else:
+            return False
 
 
 class TheDot:
