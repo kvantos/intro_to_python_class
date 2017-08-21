@@ -49,7 +49,6 @@ https://github.com/dbradul/python_classes/blob/master/basics/class_stats_v2.py
 BASE_URL = "http://54.201.47.219:8080/api"
 VERSION = "v1"
 URL = "%s/%s" % (BASE_URL, VERSION)
-NUM_OF_TESTS = 12
 
 
 #------------------------------------------------------------------------------
@@ -218,7 +217,7 @@ def update_students_results():
         student_id = student['id']
         hw_rank = sum(home_works[student_id])
         test1_result = test1_results[student_id]
-        test1_rank = sum([test1_result[i]*test1_weights[i] for i in range(NUM_OF_TESTS)])
+        test1_rank = sum([result * test1_weights[i] for i, result in enumerate(test1_result)])
         total_rank = hw_rank + test1_rank
         update_student(student_id, {'rank': total_rank})
 

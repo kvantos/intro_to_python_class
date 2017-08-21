@@ -21,7 +21,7 @@ class Godzilla:
 
         if human_person > 90:
             print("Hey, its too much even for me!")
-            print("Averege humanperson should be around 20")
+            print("Averege human person should be around 20")
         else:
             self.stomach_volume += human_person
         
@@ -36,16 +36,20 @@ class Circle:
     параметра точку и проверяет находится ли данная
     точка внутри окружности.
     """
+    def __init__(self, x, y, r):
+        self.x = x
+        self.y = y
+        self.r = r
 
+    def check_dot(dot):
+        
 
 class TheDot:
 
-    def __init__(self, args):
-        """
-        
-        """
-        self.args = args
-            
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
 
 class Vehicle:
     """
