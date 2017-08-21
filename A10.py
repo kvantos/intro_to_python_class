@@ -13,28 +13,31 @@ class Godzilla:
     выводить надпись, что Годзила наелся и больше не
     может поедать людей.
     """
-    MAX_STOMACH_FILL = 90
+    MAX_STOMACH_FILL = 90  # in percent
     
-    def __init__(self):
-        self.stomach_volume = 0
+    def __init__(self, stomach_total_volume=100):
+        self.stomach_total_volume = stomach_total_volume
+        self.stomach_current_volume = 0  # in percent
 
     def eat(self, human_weight):
-
-        if human_weight > Godzilla.MAX_STOMACH_FILL:
+        # human weight in percent
+        human_weight_p = (100*human_weight)/self.stomach_total_volume
+        
+        if human_weight_p > Godzilla.MAX_STOMACH_FILL:
             print("Hey, its too much even for me!")
-            print("Averege human person should be around 20")
             
-        elif self.stomach_volume >= Godzilla.MAX_STOMACH_FILL:
+        elif self.stomach_current_volume >= Godzilla.MAX_STOMACH_FILL:
             print("I'm full and can not eat more.")
         
-        elif self.stomach_volume + human_weight <= Godzilla.MAX_STOMACH_FILL:
+        elif self.stomach_current_volume + human_weight_p <= Godzilla.MAX_STOMACH_FILL:
             print("Delicious, thanks!")
-            self.stomach_volume += human_weight
+            self.stomach_current_volume += human_weight_p
 
         else:
-            print("human person with volume of %i is too much" % human_weight)
+            left_space = (Godzilla.MAX_STOMACH_FILL - self.stomach_current_volume)*self.stomach_total_volume/100
+            print("human person with weight %i is too much" % human_weight)
             print("Cant eat such a big human. However, I still able to absorb")
-            print("human with volume around %i" % (Godzilla.MAX_STOMACH_FILL - self.stomach_volume))
+            print("human with weight around %i" % left_space)
         
         
 class Circle:
