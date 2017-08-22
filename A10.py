@@ -40,8 +40,9 @@ class Godzilla:
             print("human person with weight %i is too much" % human_weight)
             print("Cant eat such a big human. However, I still able to absorb")
             print("human with weight around %i" % left_space)
-        
-        
+
+
+#----------------------------------------------------------
 class Circle:
     """
     35. Создать два класса: Окружность и Точка. Создать
@@ -71,6 +72,7 @@ class TheDot:
         self.y = y
 
 
+#----------------------------------------------------------
 class Vehicle:
     """
     36. Создать класс Транспортное средство и его потомков
@@ -80,12 +82,45 @@ class Vehicle:
     минимум по 1 новому методу и по 1 новому атрибуту.
     """
 
-    def __init__(self, args):
-        """
-        
-        """
-        self.args = args
-            
-        
+    def __init__(self, capacity, mileage):
+        self.passenger_capacity = capacity
+        self.mileage = mileage  # fuel consumption in liters per 100 mile
+        self.thrust = 0
+        self.fuel_in_tank = 0  # liters
+        self.distance_traveled = 0
+
+    def update_fuel_tank(self):
+        fuel_consumed = self.distance_traveled * self.mileage/100
+        self.fuel_in_tank = self.fuel_in_tank - fuel_consumed
 
 
+class Train(Vehicle):
+    
+    def __init__(self, capacity, mileage, engine_type):
+        super().__init__(capacity, mileage)
+        # diesel
+        # electric
+        self.engine_type = engine_type
+
+    def horn(self):
+        print("ヾ( ⩾凸⩽)ﾂ ♪")
+
+    def __str__(self):
+        train_stats = ("Train have %s engine.\n" % self.engine_type
+                       + "Traveled %i miles.\n" % self.distance_traveled
+                       + "Tank have %i of fuel left." % self.fuel_in_tank)
+        return train_stats
+
+
+class Airplan(Vehicle):
+
+    def __init__(self, capacity, mileage, thrust_type):
+        super().__init__(capacity, mileage)
+        # reactive
+        # turboprop
+        # airscrew
+        self.thrust_type = thrust_type
+        self.altitude = 0
+
+    def update_altitude(self, altitude):
+        self.altitude += altitude
