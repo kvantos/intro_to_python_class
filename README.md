@@ -34,6 +34,12 @@ Exercise 33: Class Stats
 ### A10.py
 Exercises 34, 35 and 36
 
-### T1.py
-Task 1
+### A11.py
+Exercise 37
+**retail_demo.py** demonstrates retail in action.
 
+### T1.py
+Test 1
+
+### T2.py
+Test 2
