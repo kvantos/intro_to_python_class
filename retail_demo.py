@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
 from A11 import RetailShop
 from A11 import Store
 from A11 import Customer
 from A11 import Clothing
 from A11 import Book
 from A11 import Hobby
+import sys
 
 
 def cmd():
-    
+
+    def quit_msg():
+        print("")
+        print("-----------")
+        print("C-c to quit")
+        print("")
+
     print("Please select customer to who you want to sell product:")
     for i, customer in enumerate(my_retail.customers):
         print("%i: %s" % (i, customer.login))
 
+    quit_msg()
     customer_id = int(input("customer > "))
 
     print("Please select product you want to sell:")
     for i, product in enumerate(my_retail.storage_facilities.get_items()):
         print("%i: %s - %s - %s" % (i, product.category, product.brand, product.title))
 
+    quit_msg()
     product_id = int(input("product > "))
 
     try:
@@ -48,9 +58,14 @@ my_retail.add_custromer(customer2)
 
 
 while True:
-    print(my_retail)
-    cmd()
+    try:
+        print(my_retail)
+        cmd()
+    except (KeyboardInterrupt, EOFError):
+        print("\n See ya!")
+        sys.exit(0)
+        
 
-# print(my_retail)
-# cmd()
-# print(my_retail)
+
+
+
