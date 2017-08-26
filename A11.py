@@ -10,13 +10,19 @@ import datetime
 по каждому товару и всего (Прибыль = доход - себестоимость товара).
 """
 
+
 class RetailShop:
     """
     Super mega retail shop
     """
-
-    __invoice_number = 1
     
+    class Error(Exception):
+        pass
+    
+    class OutOfGoods(Error):
+        def __init__(self, message):
+            self.message = message
+
     def __init__(self):
         self.total_income = 0
         self.storage_facilities = None
@@ -55,9 +61,15 @@ class RetailShop:
         self.invoices.append(invoice)
         
     def sel(self, customer_id, item_id):
-#        in_number = len(self.invoices) + 1
         items = self.storage_facilities.get_items()
-        invoice = Invoice(self.customers[customer_id], items[item_id])
+        if len(items) < 1:
+            raise RetailShop.OutOfGoods("Unfortunately, no products left")
+
+        try:
+            invoice = Invoice(self.customers[customer_id], items[item_id])
+        except IndexError:
+            raise RetailShop.OutOfGoods("Unfortunately, such products are no longer in stock")
+        
         self.add_invoice(invoice)
         self.total_income += invoice.income
         self.storage_facilities.rm_item(items[item_id])
@@ -82,6 +94,7 @@ class Invoice:
     
     def __init__(self, customer, product):
         Invoice.__invoice_number += 1
+        self.number = Invoice.__invoice_number
         self.customer = customer
         self.product = product
         self.cost_price = product.cost_price

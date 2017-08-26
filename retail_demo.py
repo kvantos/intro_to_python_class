@@ -8,6 +8,7 @@ from A11 import Clothing
 from A11 import Book
 from A11 import Hobby
 
+
 def cmd():
     
     print("Please select customer to who you want to sell product:")
@@ -22,7 +23,10 @@ def cmd():
 
     product_id = int(input("product > "))
 
-    my_retail.sel(customer_id, product_id)
+    try:
+        my_retail.sel(customer_id, product_id)
+    except RetailShop.OutOfGoods as msg:
+        print("=====>> %s" % msg)
 
 
 my_retail = RetailShop()
@@ -43,12 +47,10 @@ my_retail.add_custromer(customer1)
 my_retail.add_custromer(customer2)
 
 
-print(my_retail)
+while True:
+    print(my_retail)
+    cmd()
 
-cmd()
-
-print(my_retail)
-
-cmd()
-
-print(my_retail)
+# print(my_retail)
+# cmd()
+# print(my_retail)
