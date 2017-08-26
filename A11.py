@@ -100,8 +100,8 @@ class Store:
     def __str__(self):
         return "%i %s" % (len(self._items), str(self._items))
     
-    def add_item(self, item):
-        self._items.append(item)
+    def add_items(self, items):
+        self._items.extend(items)
 
     def get_items(self):
         return self._items

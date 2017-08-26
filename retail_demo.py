@@ -34,14 +34,7 @@ book = Book("Addison-Wesley", 20, "Josee Lajoie,Stanley B. Lippman", "C++ Primer
 hammer = Hobby("Stanley", 15, "Super Hammer")
 store_moldavanka = Store("Staroportofrankovskaia, 45", "9:30,19:00", 100)
 
-store_moldavanka.add_item(t_shirt1)
-store_moldavanka.add_item(t_shirt2)
-store_moldavanka.add_item(t_shirt2)
-store_moldavanka.add_item(t_shirt2)
-store_moldavanka.add_item(book)
-store_moldavanka.add_item(hammer)
-store_moldavanka.add_item(hammer)
-store_moldavanka.add_item(hammer)
+store_moldavanka.add_items([t_shirt1, t_shirt2, t_shirt2, t_shirt2, book, hammer, hammer, hammer])
 my_retail.set_store(store_moldavanka)
 
 customer1 = Customer("tanenbaum", "andrew@gmail.com")
