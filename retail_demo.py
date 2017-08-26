@@ -42,7 +42,7 @@ store_moldavanka.add_item(book)
 store_moldavanka.add_item(hammer)
 store_moldavanka.add_item(hammer)
 store_moldavanka.add_item(hammer)
-my_retail.add_store(store_moldavanka)
+my_retail.set_store(store_moldavanka)
 
 customer1 = Customer("tanenbaum", "andrew@gmail.com")
 customer2 = Customer("Rochkind", "mark@mail.com")
