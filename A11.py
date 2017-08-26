@@ -21,6 +21,7 @@ class RetailShop:
     
     class OutOfGoods(Error):
         def __init__(self, message):
+#            super().__init__()
             self.message = message
 
     def __init__(self):
@@ -68,7 +69,7 @@ class RetailShop:
         try:
             invoice = Invoice(self.customers[customer_id], items[item_id])
         except IndexError:
-            raise RetailShop.OutOfGoods("Unfortunately, such products are no longer in stock")
+            raise RetailShop.OutOfGoods("Unfortunately, product with id %i are no longer in stock" % item_id)
         
         self.add_invoice(invoice)
         self.total_income += invoice.income
