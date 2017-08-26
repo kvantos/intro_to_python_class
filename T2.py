@@ -21,6 +21,9 @@ Test 2
 5. вывести что больше читают - книги или газеты
 """
 
+book_archive = []
+npaper_archive = []
+
 
 class Hand:
     def __init__(self):

@@ -37,7 +37,7 @@ class RetailShop:
         output = ""
         output += "Customers: %i\n" % len(self.customers)
         output += "Total income: %i\n" % self.total_income
-        output += "Income per product:\n"
+        output += "Income per category:\n"
         for inv in invoice_dict:
             output += "    %s: %i\n" % (inv, invoice_dict[inv])
         output += "Goods left:\n"
