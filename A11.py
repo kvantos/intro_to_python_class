@@ -16,12 +16,8 @@ class RetailShop:
     Super mega retail shop
     """
     
-    class Error(Exception):
-        pass
-    
-    class OutOfGoods(Error):
+    class OutOfGoods(Exception):
         def __init__(self, message):
-#            super().__init__()
             self.message = message
 
     def __init__(self):
