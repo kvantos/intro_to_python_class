@@ -10,13 +10,12 @@ import datetime
 по каждому товару и всего (Прибыль = доход - себестоимость товара).
 """
 
-ADDED_VALUE = 20  # in percent
-
-
 class RetailShop:
     """
     Super mega retail shop
     """
+
+    __invoice_number = 1
     
     def __init__(self):
         self.total_income = 0
@@ -56,9 +55,9 @@ class RetailShop:
         self.invoices.append(invoice)
         
     def sel(self, customer_id, item_id):
-        in_number = len(self.invoices) + 1
+#        in_number = len(self.invoices) + 1
         items = self.storage_facilities.get_items()
-        invoice = Invoice(in_number, self.customers[customer_id], items[item_id])
+        invoice = Invoice(self.customers[customer_id], items[item_id])
         self.add_invoice(invoice)
         self.total_income += invoice.income
         self.storage_facilities.rm_item(items[item_id])
@@ -77,13 +76,17 @@ class Invoice:
     """
     A list of goods sent, with a statement of the sum due for these.
     """
-    def __init__(self, number, customer, product):
+
+    ADDED_VALUE = 20  # in percent
+    __invoice_number = 1
+    
+    def __init__(self, customer, product):
+        Invoice.__invoice_number += 1
         self.customer = customer
-        self.number = number
         self.product = product
         self.cost_price = product.cost_price
         self.date = datetime.datetime.now()
-        self.price = (self.cost_price * ADDED_VALUE/100) + self.cost_price
+        self.price = (self.cost_price * Invoice.ADDED_VALUE/100) + self.cost_price
         self.income = self.price - self.cost_price
 
 
