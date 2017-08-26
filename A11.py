@@ -17,8 +17,7 @@ class RetailShop:
     """
     
     class OutOfGoods(Exception):
-        def __init__(self, message):
-            self.message = message
+        pass
 
     def __init__(self):
         self.total_income = 0
