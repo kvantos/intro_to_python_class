@@ -28,15 +28,11 @@ class RetailShop:
         items_dict = {}
         if self.storage_facilities:
             for item in self.storage_facilities.get_items():
-                if item.category not in items_dict:
-                    items_dict[item.category] = 0
-                items_dict[item.category] += 1
+                items_dict[item.category] = items_dict.get(item.category, 0) + 1
 
         invoice_dict = {}
         for invoice in self.invoices:
-            if invoice.product.category not in invoice_dict:
-                invoice_dict[invoice.product.category] = 0
-            invoice_dict[invoice.product.category] += invoice.income
+            invoice_dict[invoice.product.category] = invoice_dict.get(invoice.product.category, 0) + invoice.income
 
         output = ""
         output += "Customers: %i\n" % len(self.customers)
@@ -50,7 +46,7 @@ class RetailShop:
         
         return output
         
-    def add_store(self, store):
+    def set_store(self, store):
         self.storage_facilities = store
 
     def add_custromer(self, customer):
